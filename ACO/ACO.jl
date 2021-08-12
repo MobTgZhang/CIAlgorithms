@@ -165,7 +165,7 @@ function main()
         Length_best[iter],index = minval[1],minval[2]
         Route_best[iter,:] = Route_table[index,:]
 
-        Length_average[iter] = mean(Length_current)
+        Length_average[iter] = sum(Length_current)/length(Length_current)
         #更新信息素
         Tau_table = (1-rho).*Tau_table + Delta_tau
         #Route_table = np.zeros((self.ant_num,citys_num),dtype=np.int)
@@ -173,6 +173,7 @@ function main()
         message = @sprintf("epoches:%d,best value every epoches is %.4f",iter,Length_best[iter])
         @info message
         iter += 1
+        Array
     end
 end
 main()
